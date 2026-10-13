@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "method": "Pauli orthogonality and weight enumeration; no submission imports",
+  "witness": {
+    "purity": "1/2",
+    "F": "9/16",
+    "U": "3/16",
+    "roof_from_analytic_support_proof": "1/4"
+  },
+  "non_axial_pure_spectator": {
+    "I": "1",
+    "X": "1/3",
+    "Y": "2/3",
+    "Z": "2/3"
+  },
+  "near_pure_family": [
+    {
+      "epsilon": "0",
+      "purity": "1",
+      "F": "3/4",
+      "U": "1/4"
+    },
+    {
+      "epsilon": "1/1000",
+      "purity": "499001/500000",
+      "F": "2997003/4000000",
+      "U": "999001/4000000"
+    },
+    {
+      "epsilon": "1/10",
+      "purity": "41/50",
+      "F": "273/400",
+      "U": "91/400"
+    },
+    {
+      "epsilon": "1/2",
+      "purity": "1/2",
+      "F": "9/16",
+      "U": "3/16"
+    },
+    {
+      "epsilon": "9/10",
+      "purity": "41/50",
+      "F": "273/400",
+      "U": "91/400"
+    },
+    {
+      "epsilon": "1",
+      "purity": "1",
+      "F": "3/4",
+      "U": "1/4"
+    }
+  ],
+  "sharpness_sequence": [
+    {
+      "k": 1,
+      "n": 3,
+      "gap_over_impurity": "1/8"
+    },
+    {
+      "k": 2,
+      "n": 5,
+      "gap_over_impurity": "7/32"
+    },
+    {
+      "k": 3,
+      "n": 7,
+      "gap_over_impurity": "37/128"
+    },
+    {
+      "k": 4,
+      "n": 9,
+      "gap_over_impurity": "175/512"
+    },
+    {
+      "k": 5,
+      "n": 11,
+      "gap_over_impurity": "781/2048"
+    },
+    {
+      "k": 6,
+      "n": 13,
+      "gap_over_impurity": "3367/8192"
+    },
+    {
+      "k": 7,
+      "n": 15,
+      "gap_over_impurity": "14197/32768"
+    },
+    {
+      "k": 8,
+      "n": 17,
+      "gap_over_impurity": "58975/131072"
+    }
+  ],
+  "swap_distribution": {
+    "000": "9/16",
+    "001": "3/16",
+    "110": "3/16",
+    "111": "1/16"
+  },
+  "limits": "Finite checks only; roof equality and uniform sharpness require the analytic arguments."
+}

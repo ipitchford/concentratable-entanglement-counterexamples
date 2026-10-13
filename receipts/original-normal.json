@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "arithmetic": "Python fractions.Fraction; no floating point",
+  "matrix_basis_order": [
+    "000",
+    "001",
+    "010",
+    "011",
+    "100",
+    "101",
+    "110",
+    "111"
+  ],
+  "rho": [
+    [
+      "1/4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/4",
+      "0"
+    ],
+    [
+      "0",
+      "1/4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/4"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "1/4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/4",
+      "0"
+    ],
+    [
+      "0",
+      "1/4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/4"
+    ]
+  ],
+  "support_rank": 2,
+  "subset_purities": {
+    "empty": "1",
+    "A": "1/2",
+    "B": "1/2",
+    "AB": "1",
+    "C": "1/2",
+    "AC": "1/4",
+    "BC": "1/4",
+    "ABC": "1/2"
+  },
+  "purity_sum": "9/2",
+  "global_purity": "1/2",
+  "mean_subsystem_purity": "9/16",
+  "proposed_upper": "3/16",
+  "roof_value_from_support_proof": "1/4",
+  "violation": "1/16",
+  "swap_probabilities": {
+    "000": "9/16",
+    "001": "3/16",
+    "010": "0",
+    "011": "0",
+    "100": "0",
+    "101": "0",
+    "110": "3/16",
+    "111": "1/16"
+  },
+  "nonzero_even_probability": "3/16",
+  "odd_probability": "1/4",
+  "rational_family_checks": [
+    {
+      "epsilon": "0",
+      "purity": "1",
+      "proposed_upper": "1/4",
+      "gap": "0"
+    },
+    {
+      "epsilon": "1/1000",
+      "purity": "499001/500000",
+      "proposed_upper": "999001/4000000",
+      "gap": "999/4000000"
+    },
+    {
+      "epsilon": "1/10",
+      "purity": "41/50",
+      "proposed_upper": "91/400",
+      "gap": "9/400"
+    },
+    {
+      "epsilon": "1/2",
+      "purity": "1/2",
+      "proposed_upper": "3/16",
+      "gap": "1/16"
+    },
+    {
+      "epsilon": "9/10",
+      "purity": "41/50",
+      "proposed_upper": "91/400",
+      "gap": "9/400"
+    },
+    {
+      "epsilon": "1",
+      "purity": "1",
+      "proposed_upper": "1/4",
+      "gap": "0"
+    }
+  ],
+  "scope": "Finite arithmetic certificate and sample consistency checks. All-decomposition and all-dimension claims use the analytic proofs, not numerical optimisation or sampling."
+}

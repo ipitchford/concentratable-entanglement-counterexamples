@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0",
+  "status": "research-candidate",
+  "creator": "Anonymous",
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "A pure m-qubit core with CE e and any single-qubit spectator of purity r has both roofs e and U=(1+r)e/2.",
+      "hypotheses": "m>=1; core pure; single-qubit spectator",
+      "proofLocation": "paper.tex: thm:spectator",
+      "dependencies": "Support restriction and product formula",
+      "formalVerification": false
+    },
+    {
+      "id": "C2",
+      "statement": "Bell spectator has both roofs 1/4 and U=3/16; failures occur arbitrarily near purity.",
+      "hypotheses": "Three qubits; identical copies; 0<epsilon<1",
+      "proofLocation": "paper.tex: cor:bell, cor:near",
+      "dependencies": "Support theorem and exact rational arithmetic",
+      "formalVerification": false
+    },
+    {
+      "id": "C3",
+      "statement": "The optimal dimension-independent additive impurity coefficient is 1/2 for both roofs.",
+      "hypotheses": "All finite n; coefficient independent of n",
+      "proofLocation": "paper.tex: thm:repair",
+      "dependencies": "Variance identity; product-of-Bell-pairs sequence",
+      "formalVerification": false
+    },
+    {
+      "id": "C4",
+      "statement": "The fixed-n concave coefficient is 1/2-2^-n; the two-qubit convex coefficient is zero.",
+      "hypotheses": "n>=1 for concave; n=2 for convex",
+      "proofLocation": "extensions.tex: eq:capsharp; opening section",
+      "dependencies": "GHZ phase-mixture saturation; Wootters concurrence",
+      "formalVerification": false
+    },
+    {
+      "id": "C5",
+      "statement": "The convex roof is unchanged by adjoining an arbitrary mixed single-qubit spectator to an arbitrary mixed core.",
+      "hypotheses": "Mixed core allowed; one-qubit spectator; convex roof only",
+      "proofLocation": "extensions.tex: lem:discard",
+      "dependencies": "Complementary purities, conditional ensembles, product ensemble",
+      "formalVerification": false
+    },
+    {
+      "id": "C6",
+      "statement": "The depolarised family has convex roof max(0,3q-1)^2/16 and U=(9+3q^2)/64; a radius-1/200 trace-distance ball around q=19/20 consists of full-rank violations.",
+      "hypotheses": "Family 0<=q<=1; full-rank strict violation above (12+sqrt(309))/33 and below 1; ball states physical",
+      "proofLocation": "extensions.tex: thm:noisy and subsequent radius argument",
+      "dependencies": "Wootters, discard inequality, fidelity witness, trace-distance bounds",
+      "formalVerification": false
+    },
+    {
+      "id": "C7",
+      "statement": "Rank-two GME family R_z has convex roof 1/4-3z^2/16, concave roof 1/4+z/4-3z^2/8, and deficit (1-z)/16.",
+      "hypotheses": "0<z<1; family defined in theorem; no full-rank claim",
+      "proofLocation": "extensions.tex: thm:gme",
+      "dependencies": "Support flattening minors and attained Jensen/chord bounds",
+      "formalVerification": false
+    }
+  ],
+  "open": [
+    "Optimal fixed-three-qubit convex coefficient, bounded here between 1/8 and 3/8",
+    "Explicit quantitative full-rank GME certificate"
+  ],
+  "limits": [
+    "No exhaustive novelty or priority finding",
+    "No external human peer review",
+    "Finite checks do not prove universal statements"
+  ]
+}

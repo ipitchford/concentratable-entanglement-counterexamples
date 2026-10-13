@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0",
+  "recordDate": "2026-10-13",
+  "recordType": "Retrospective original-submission intake plus prospective bounded extension searches; frozen candidate with downstream execution receipts external",
+  "executionIsNotAdequacy": true,
+  "contributionMap": [
+    {
+      "claim": "Exact counterexamples to universal CE upper bound, including mixed spectators and rank-two GME family",
+      "unit": "statement",
+      "paperLocation": "paper.tex cor:bell; extensions.tex thm:gme",
+      "searches": [
+        {
+          "date": "2026-10-13",
+          "query": "\"concentratable entanglement\" \"counterexample\" genuinely; \"concentratable entanglement\" spectator counterexample correction",
+          "corpus": "Web discovery and linked arXiv/APS primary literature"
+        }
+      ],
+      "closestPriorWork": "Foulds et al. proposed statistic and p.15 caveat",
+      "verdict": "new-in-bounded-search",
+      "verdictQualification": "No exact statement located in returned sources; elementary ingredients known and priority unestablished"
+    },
+    {
+      "claim": "Optimal fixed-size concave impurity correction",
+      "unit": "statement",
+      "paperLocation": "extensions.tex eq:capsharp",
+      "searches": [
+        {
+          "date": "2026-10-13",
+          "query": "\"concentratable entanglement\" \"concave roof\"; \"concentratable entanglement\" \"1/2\" \"upper bound\"",
+          "corpus": "Web discovery and primary CE literature"
+        }
+      ],
+      "closestPriorWork": "Known GHZ CE and purity-convexity upper estimate",
+      "verdict": "new-in-bounded-search",
+      "verdictQualification": "No exact statement located in returned sources; elementary ingredients known and priority unestablished"
+    },
+    {
+      "claim": "Support, product, concurrence and convexity methods",
+      "unit": "method",
+      "paperLocation": "paper.tex lemmas; extensions.tex",
+      "searches": [
+        {
+          "date": "2026-10-13",
+          "query": "Wootters concurrence spin flipped density matrix formula 1998 entanglement formation",
+          "corpus": "Primary Wootters article and CE sources"
+        }
+      ],
+      "closestPriorWork": "Wootters 1998; Beckey 2023; Schatzki 2024; Vairogs 2026",
+      "verdict": "known-cited"
+    }
+  ],
+  "sourcesReadInFull": [
+    {
+      "citation": "foulds2024",
+      "usedFor": "Definitions (3.5),(3.6), proposed statistic (3.18),(5.1), and p.15 underestimation qualification; relevant full-text pages 10,13,15,23 inspected.",
+      "readWhat": "Definitions (3.5),(3.6), proposed statistic (3.18),(5.1), and p.15 underestimation qualification; relevant full-text pages 10,13,15,23 inspected.",
+      "date": "2026-10-13",
+      "evidenceLocator": "https://arxiv.org/abs/2112.04333v8",
+      "scopeCaveat": "Field denotes full-text passage inspection, not whole-paper audit."
+    },
+    {
+      "citation": "beckey2023",
+      "usedFor": "Mixed-state convex-roof definition, equation (10), and lower-bound discussion; selected full-text passages inspected.",
+      "readWhat": "Mixed-state convex-roof definition, equation (10), and lower-bound discussion; selected full-text passages inspected.",
+      "date": "2026-10-13",
+      "evidenceLocator": "https://arxiv.org/abs/2210.02575",
+      "scopeCaveat": "Field denotes full-text passage inspection, not whole-paper audit."
+    },
+    {
+      "citation": "schatzki2024",
+      "usedFor": "Product hierarchy, known GHZ pure CE value and supplement XI measurable mixed-state quantity 1-F; selected full-text arguments inspected.",
+      "readWhat": "Product hierarchy, known GHZ pure CE value and supplement XI measurable mixed-state quantity 1-F; selected full-text arguments inspected.",
+      "date": "2026-10-13",
+      "evidenceLocator": "https://arxiv.org/abs/2209.07607",
+      "scopeCaveat": "Field denotes full-text passage inspection, not whole-paper audit."
+    },
+    {
+      "citation": "vairogs2026",
+      "usedFor": "Theorem 3 and Appendix B purity-convexity assistance bound; related continuity passages. Selected full-text arguments inspected.",
+      "readWhat": "Theorem 3 and Appendix B purity-convexity assistance bound; related continuity passages. Selected full-text arguments inspected.",
+      "date": "2026-10-13",
+      "evidenceLocator": "https://arxiv.org/html/2411.04080v2",
+      "scopeCaveat": "Field denotes full-text passage inspection, not whole-paper audit."
+    },
+    {
+      "citation": "wootters1998",
+      "usedFor": "Equation (10), equal-concurrence ensemble construction and lower bound on ensemble mean concurrence; full-text load-bearing passages inspected.",
+      "readWhat": "Equation (10), equal-concurrence ensemble construction and lower bound on ensemble mean concurrence; full-text load-bearing passages inspected.",
+      "date": "2026-10-13",
+      "evidenceLocator": "https://arxiv.org/pdf/quant-ph/9709029",
+      "scopeCaveat": "Field denotes full-text passage inspection, not whole-paper audit."
+    }
+  ],
+  "limitationTriage": [
+    {
+      "limitation": "Optimal fixed-three-qubit convex coefficient",
+      "closingQuestion": "Does a known concurrence identity or cheap analytic argument close [1/8,3/8]?",
+      "triedOrSearched": "Finite-size analytic scout and concurrence/source comparison",
+      "estimatedCost": "Unbounded beyond brief scout",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "No valid matching upper/lower proof obtained",
+      "whyNotClosedNow": "Further open research; no unsupported optimality assertion"
+    },
+    {
+      "limitation": "Explicit full-rank GME radius",
+      "closingQuestion": "Can current support proof produce a quantitative full-rank GME certificate?",
+      "triedOrSearched": "Separated rank-two GME proof from full-rank robustness construction",
+      "estimatedCost": "Not established",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Current GME support argument relies on rank two",
+      "whyNotClosedNow": "Not needed for either stated theorem; no radius claimed"
+    }
+  ],
+  "extensionScout": {
+    "by": "AI-assisted bounded research perspectives with targeted internal checking",
+    "date": "2026-10-13",
+    "proposals": [
+      "Fixed-n sharpness",
+      "Mixed-core and full-rank robustness",
+      "Exact GME family"
+    ],
+    "actions": [
+      "Proved exact concave coefficient and n=2 convex result",
+      "Proved mixed-core invariance and explicit noisy family/ball",
+      "Proved rank-two GME family and both exact roofs"
+    ]
+  },
+  "pendingReleaseChecks": [
+    "Manifest and archive freeze",
+    "Fresh-extraction replay",
+    "Package-specific gate",
+    "Public CI",
+    "Provider parity and canonical readback"
+  ],
+  "manuscriptQa": "MANUSCRIPT_QA.md"
+}

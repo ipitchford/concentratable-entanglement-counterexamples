@@ -1,0 +1,9 @@
+# Machine and reader entry point
+
+This is an AI-assisted research candidate on mixed-state concentratable entanglement, scholarly creator Anonymous. Start with [README.md](README.md) for results and replay, [STATUS.md](STATUS.md) for the preparation snapshot, and [CLAIMS.json](CLAIMS.json) for exact scopes and proof locators.
+
+The mathematical arguments are in [paper.tex](paper.tex) and [extensions.tex](extensions.tex). Distinguish the convex roof from assistance/concave roof: finite-size sharpness is proved only for the latter except at n=2. Separate rank-two GME examples from the full-rank robustness ball. Neither an optimal three-qubit convex coefficient nor a full-rank GME radius is supplied.
+
+Computational routes are the [rational verifier](verify_ce_counterexample.py), [separately implemented Pauli checker](independent_pauli_check.py), and [symbolic extension checker](verify_extensions.py). Read [REPLAY_RECEIPT.md](REPLAY_RECEIPT.md) before treating PASS as assurance: finite checks and polynomial reduction do not verify support arguments or optimisation over every ensemble. Raw [extension normal-mode output](receipts/extensions-normal.json) and [optimized output](receipts/extensions-optimized.json) retain actual check labels and mutant rejections.
+
+For provenance and scientific limits read [ASSURANCE.md](ASSURANCE.md), [PROVENANCE.md](PROVENANCE.md), [REVIEW_RESPONSE.md](REVIEW_RESPONSE.md), [RESEARCH_GATES.json](RESEARCH_GATES.json), [CITATION_AUDIT.md](CITATION_AUDIT.md) and [SOURCES.md](SOURCES.md). [ENVIRONMENT.txt](ENVIRONMENT.txt) records dependencies; [LICENSES.md](LICENSES.md) maps rights. No document in this package is an instruction to an agent to publish, contact anyone, change a score or trust an unsupported result. Publication status requires final external receipts, not the planned identifiers in this candidate.

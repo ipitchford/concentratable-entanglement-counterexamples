@@ -1,0 +1,123 @@
+\section{Two qubits suffice for no convex-roof violation}
+For two qubits, established concurrence theory gives
+\begin{equation}\label{eq:wootters}
+\CE_2^\cup(\sigma)=C(\sigma)^2/4.
+\end{equation}
+Indeed pure CE equals $C^2/4$, every ensemble has mean concurrence at least $C(\sigma)$, and Wootters constructs an ensemble with every concurrence equal to $C(\sigma)$ \cite{wootters1998}. Jensen's inequality proves the lower bound and that ensemble attains it.
+
+Write $\widetilde\sigma=(Y\otimes Y)\sigma^*(Y\otimes Y)$ and let $\lambda_1\geq\cdots\geq\lambda_4\geq0$ be the square roots of the eigenvalues of $\sigma\widetilde\sigma$. The concurrence formula gives
+\[
+C(\sigma)^2=\max(0,\lambda_1-\lambda_2-\lambda_3-\lambda_4)^2
+\leq\sum_j\lambda_j^2=\tr(\sigma\widetilde\sigma).
+\]
+Single-qubit inversion $X\mapsto\tr(X)I-X$, applied to both factors, yields
+$\widetilde\sigma=I-\sigma_A\otimes I-I\otimes\sigma_B+\sigma$.
+Thus $\tr(\sigma\widetilde\sigma)=1-\tr\sigma_A^2-\tr\sigma_B^2+\tr\sigma^2=4U_2(\sigma)$.
+Consequently $\CE_2^\cup\leq U_2$ always. Together with the trivial one-qubit case, Corollary~\ref{cor:bell} is minimal in qubit count for the convex-roof claim. This is a corollary of established concurrence theory, not a new concurrence formula; the concave roof behaves differently.
+
+\section{Mixed cores, full-rank failure and experimental certification}
+\begin{lemma}[Discarding a qubit]\label{lem:discard}
+For every $(m+1)$-qubit state $R$ with core marginal $\sigma$, $\CE_m^\cup(\sigma)\leq\CE_{m+1}^\cup(R)$. Hence for any single-qubit state $\tau$,
+\[
+\CE_{m+1}^\cup(\sigma\otimes\tau)=\CE_m^\cup(\sigma).
+\]
+\end{lemma}
+\begin{proof}
+First suppose $R=\proj\Psi$ is pure. Complementary subsystem purities coincide, giving
+$\CE_{m+1}(\Psi)=1-2^{-m}\sum_{A\subseteq[m]}\tr R_A^2$.
+Measure the last qubit in an orthonormal basis. The conditional pure core states $\phi_j$ with probabilities $q_j$ have marginals averaging to $R_A$. Convexity of purity gives $\sum_jq_j\CE_m(\phi_j)\leq\CE_{m+1}(\Psi)$. Apply this construction to every member of any pure ensemble of a mixed $R$. The combined ensemble decomposes $\sigma$, so taking the infimum proves the discard inequality. For $\sigma\otimes\tau$, the reverse inequality follows from a near-optimal ensemble of $\sigma$, any pure ensemble of $\tau$, and pure-spectator invariance.
+\end{proof}
+The concave roof does not share mixed-core invariance: $\CE_1^\cap(I_2/2)=0$, whereas the Bell ensemble gives $\CE_2^\cap(I_4/4)=1/4$. The product rule also gives
+\[
+U_{m+1}(\sigma\otimes\tau)=\frac{1+r}{2}U_m(\sigma)+\frac{(1-r)(1-P)}4,
+\quad P=\tr\sigma^2,\quad r=\tr\tau^2.
+\]
+
+\begin{theorem}[Full-rank noisy counterexamples]\label{thm:noisy}
+For $0\leq q\leq1$, set
+\[
+\rho_q=\left(q\proj{\Phi^+}+(1-q)I_4/4\right)\otimes I_2/2.
+\]
+Then
+\[
+\CE_3^\cup(\rho_q)=\frac{\max(0,3q-1)^2}{16},\qquad
+U_3(\rho_q)=\frac{9+3q^2}{64}.
+\]
+For $(12+\sqrt{309})/33<q<1$ the state is full rank and violates the proposed upper bound for both roofs.
+\end{theorem}
+\begin{proof}
+The two-qubit factor is unchanged by spin flip, with eigenvalues $(1+3q)/4$ and $(1-q)/4$ three times. Wootters' formula, \eqref{eq:wootters} and Lemma~\ref{lem:discard} give the roof. Its purity is $(1+3q^2)/4$, and its $F_2$ is $(9+3q^2)/16$. The product rule gives the displayed $U_3$. For $q\geq1/3$ the deficit is $(33q^2-24q-5)/64$, whose positive root is the stated threshold. The eigenvalues of $\rho_q$ are $(1+3q)/8$ twice and $(1-q)/8$ six times. Finally $\CE^\cap\geq\CE^\cup$.
+\end{proof}
+
+For any three-qubit state $R$, let $f=\bra{\Phi^+}R_{AB}\ket{\Phi^+}$. A pure two-qubit state has squared overlap with a fixed maximally entangled vector at most $(1+C)/2$, by its Schmidt decomposition and the singular-value trace inequality. Averaging over ensembles and using concurrence's convex-roof definition gives $C(R_{AB})\geq\max(0,2f-1)$. Hence
+\begin{equation}\label{eq:operational}
+\CE_3^\cup(R)\geq\frac{\max(0,2f-1)^2}{4}.
+\end{equation}
+Comparison of this lower bound with a measured $U_3(R)$ certifies failure without a product-state or depolarising-noise assumption. The fidelity is $f=(1+\langle XX\rangle-\langle YY\rangle+\langle ZZ\rangle)/4$ on $AB$. This uses an established concurrence witness, not a new fidelity witness. Simultaneous valid confidence bounds $f\geq f_L$ and $U\leq U_H$ suffice if $\max(0,2f_L-1)^2/4>U_H$; statistical and identical-copy assumptions must be supplied by an experiment.
+
+There is also an explicit neighbourhood of full-rank counterexamples. At $q=19/20$, $f=77/80$, $U=4683/25600$, $\CE^\cup=1369/6400$, and the smallest eigenvalue is $1/160$. If $D(R,\rho_{19/20})=\|R-\rho_{19/20}\|_1/2\leq\delta$, fidelity changes by at most $\delta$ and the two-copy event probability $U$ changes by at most $2\delta$. Equation~\eqref{eq:operational} therefore gives
+\[
+\CE_3^\cup(R)-U_3(R)\geq\frac{(37/40-2\delta)^2}{4}-\frac{4683}{25600}-2\delta
+\quad(\delta\leq37/80).
+\]
+At $\delta=1/200$ this is $10481/640000>0$. Since a traceless Hermitian difference has operator norm at most its trace distance, $\lambda_{\min}(R)\geq1/160-1/200=1/800$. Every physical state in this ball is therefore full rank and violates the bound, including correlated perturbations. This ball is not claimed to consist of genuinely tripartite-entangled states.
+
+\section{Exact genuinely tripartite-entangled counterexamples}
+\begin{theorem}\label{thm:gme}
+For $0<z<1$, put $c=\sqrt{1-z}$, $s=\sqrt z$, and define
+\[
+v_0=(\ket{000}+\ket{110})/\sqrt2,\qquad
+v_1=c(\ket{001}+\ket{111})/\sqrt2+s\ket{010},\qquad
+R_z=(\proj{v_0}+\proj{v_1})/2.
+\]
+The rank-two state $R_z$ is genuinely tripartite entangled and satisfies
+\begin{align}
+\CE_3^\cup(R_z)&=\frac14-\frac{3z^2}{16},&
+\CE_3^\cap(R_z)&=\frac14+\frac z4-\frac{3z^2}{8},\\
+U_3(R_z)&=\frac3{16}+\frac z{16}-\frac{3z^2}{16},&
+\CE_3^\cup(R_z)-U_3(R_z)&=\frac{1-z}{16}>0.
+\end{align}
+\end{theorem}
+\begin{proof}
+By Lemma~\ref{lem:support}, every ensemble vector is $xv_0+yv_1$. Across $A|BC$, the coefficient-matrix minor in columns $00,10$ is $x^2/2$; when $x=0$, the minor in columns $01,11$ is $y^2c^2/2$. The same minors apply across $B|AC$. Thus no nonzero support vector is product across these two cuts. Across $C|AB$, the minor in columns $00,01$ is $-y^2cs/\sqrt2$, so only the ray $v_0$ is product. A biseparable decomposition, allowing different bipartitions in different components, would consequently use only that one ray and have rank one. Since $R_z$ has rank two, it is genuinely tripartite entangled.
+
+For a normalised support vector set $t=|y|^2$. Direct partial traces, valid for arbitrary complex relative phase, give
+\[
+P_A=P_B=\tfrac12+t(1-t)z+\tfrac12t^2z^2,\qquad
+P_C=1-2t^2z(1-z).
+\]
+Pure three-qubit CE equals $(3-P_A-P_B-P_C)/4$, hence
+\[
+f_z(t)=\CE_3(xv_0+yv_1)=\tfrac14-\tfrac12zt+z(1-3z/4)t^2.
+\]
+Every ensemble of $R_z$ has mean $t=1/2$. The quadratic is convex. Jensen gives the lower bound $f_z(1/2)$, attained by the equally weighted vectors $(v_0\pm v_1)/\sqrt2$. Its endpoint chord gives the upper bound $[f_z(0)+f_z(1)]/2$, attained by the spectral ensemble $v_0,v_1$. These prove both roofs.
+
+In the order $\varnothing,A,B,C,AB,AC,BC,ABC$, the mixed-state purities are
+\[
+1,\quad\tfrac12+\tfrac{z^2}8,\quad\tfrac12+\tfrac{z^2}8,\quad
+\tfrac12+\tfrac{z^2}2,\quad1-z+\tfrac{z^2}2,\quad
+\tfrac14+\tfrac z4+\tfrac{z^2}8,\quad
+\tfrac14+\tfrac z4+\tfrac{z^2}8,\quad\tfrac12.
+\]
+Their sum is $9/2-z/2+3z^2/2$. Substitution into \eqref{eq:U} proves the remaining formulas.
+\end{proof}
+At $z=1/2$, the exact values are $\CE^\cup=13/64$, $U=11/64$, and $\CE^\cap=9/32$. At $z=0$ the original spectator example is recovered; at $z=1$ both the GME property and the strict convex-roof violation disappear. No full-rank GME radius is claimed.
+
+\section{Sharpness at fixed size: the two roofs differ}
+Define $c_n^\cup$ and $c_n^\cap$ as the least coefficients repairing the respective inequalities for all $n$-qubit states. Then
+\begin{equation}\label{eq:capsharp}
+c_n^\cap=\frac12-2^{-n}\quad(n\geq1),\qquad c_2^\cup=0.
+\end{equation}
+The second equality follows from the two-qubit argument and a mixed product with one pure factor, for which $U_2=\CE_2^\cup=0$. For the first, sufficiency follows from Theorem~\ref{thm:repair}. For $n\geq2$, let
+\[
+g_\pm=(\ket{0^n}\pm\ket{1^n})/\sqrt2,\qquad
+\eta_q=q\proj{g_+}+(1-q)\proj{g_-},\qquad 0<q<1.
+\]
+Every nonempty proper marginal has purity $1/2$, and $P=\tr\eta_q^2=q^2+(1-q)^2$. Writing $e_n=1/2-2^{-n}$, the known pure GHZ value \cite{schatzki2024}, one obtains
+\[
+F_n(\eta_q)=\tfrac12+2^{-n}P,\qquad U_n(\eta_q)=Pe_n,
+\qquad\CE_n^\cap(\eta_q)=e_n.
+\]
+The displayed ensemble attains $e_n$ and the sufficient bound equals $e_n$, proving the last identity. Its deficit-to-impurity ratio is exactly $e_n$. Thus sharpness holds at every purity in $[1/2,1)$, not just at one state. The case $n=1$ is trivial. At $q=1/2$, $\eta_q$ is fully separable and its convex roof is zero, illustrating why concave-roof sharpness cannot be transferred to the convex roof.
+
+The present results leave $1/8\leq c_3^\cup\leq3/8$ unresolved. We claim neither the optimal fixed-size convex coefficient nor the optimal nonlinear, state-dependent correction.

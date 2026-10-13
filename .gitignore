@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+ci-results/
+*.aux
+*.log
+*.out

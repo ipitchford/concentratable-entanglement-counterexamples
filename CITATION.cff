@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite this unrefereed candidate; internal checks are not external peer review."
+title: "Concentratable entanglement: counterexamples and sharp repairs"
+authors:
+  - name: Anonymous
+version: 0.1.0-candidate
+date-released: 2026-10-13
+doi: 10.5281/zenodo.23336463
+url: https://github.com/ipitchford/concentratable-entanglement-counterexamples/releases/tag/v0.1.0-candidate
+repository-code: https://github.com/ipitchford/concentratable-entanglement-counterexamples
+license: CC0-1.0

@@ -1,0 +1,9 @@
+Preparation replay date: 2026-10-13
+Python observed for extension checker: 3.14.7
+SymPy observed and required: 1.14.0
+Original rational and Pauli checkers: Python standard library, fractions.Fraction
+Suggested clean environment: Python >=3.10; pip install -r requirements.txt
+CI configuration targets Python 3.12; CI is prospective until its actual run passes.
+Original historical replay interpreter version was not recorded in the retained JSON.
+No solver, GPU, network service or random seed required for scientific replay.
+LaTeX/PDF toolchain identity and final document QA belong in final packaging receipts.

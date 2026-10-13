@@ -1,0 +1,28 @@
+{
+  "title": "Concentratable entanglement: counterexamples and sharp repairs",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "<p>Unrefereed mathematical candidate. Exact counterexamples to a proposed universal mixed-state total concentratable-entanglement upper bound, including full-rank noisy and genuinely tripartite-entangled families; sharp uniform and fixed-size concave-roof impurity repairs.</p><p>Analytic proofs and producer-side exact arithmetic checks are provided. AI-assisted internal review does not establish external peer review, independent reproduction, formal verification, priority or impact. Original prose and data CC0-1.0; original code MIT. Source literature retains its own terms.</p>",
+  "creators": [
+    {
+      "name": "Anonymous"
+    }
+  ],
+  "version": "0.1.0-candidate",
+  "publication_date": "2026-10-13",
+  "access_right": "open",
+  "license": "cc-zero",
+  "keywords": [
+    "concentratable entanglement",
+    "convex roof",
+    "quantum information",
+    "counterexample"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/ipitchford/concentratable-entanglement-counterexamples",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

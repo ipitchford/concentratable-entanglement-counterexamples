@@ -1,0 +1,264 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs}
+\usepackage[margin=27mm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem,needspace}
+\hypersetup{pdfauthor={Anonymous},pdftitle={Concentratable entanglement: counterexamples and sharp repairs},pdfsubject={Exact counterexample and sharp dimension-independent impurity correction}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\CE}{\mathcal C}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\proj}[1]{\ket{#1}\bra{#1}}
+\title{Concentratable entanglement:\\ counterexamples and sharp repairs}
+\author{Anonymous}
+\date{13 October 2026\\ \small Version 0.1.0-candidate; unrefereed\\ \small DOI: \href{https://doi.org/10.5281/zenodo.23336463}{10.5281/zenodo.23336463}}
+\begin{document}
+\maketitle
+\vspace{-7mm}
+\begin{abstract}
+A conjectured upper bound on mixed-state concentratable entanglement equals the probability of a nonzero even-parity outcome in a parallel SWAP test. We show that a Bell pair tensored with one maximally mixed, uncorrelated qubit has both convex-roof and concave-roof concentratable entanglement $1/4$, whereas the proposed bound is $3/16$. A support argument determines every pure-state ensemble average, so no optimisation is needed. More generally, a mixed spectator qubit of purity $r$ multiplies this statistic by $(1+r)/2$ while leaving both roofs of a pure core unchanged. Counterexamples therefore persist arbitrarily close to pure states. We further give full-rank noisy counterexamples, an explicit perturbation ball, and genuinely tripartite-entangled rank-two examples with both roofs determined exactly. Three qubits is minimal for the convex-roof violation. The fixed-size concave-roof correction is sharp. We also prove that the smallest coefficient $c$, independent of the number of qubits, for which adding $c(1-\tr\rho^2)$ always repairs the upper bound is $c=1/2$.
+\end{abstract}
+
+\section{The precise claim}
+Concentratable entanglement (CE) was introduced as a family of pure-state multipartite entanglement measures \cite{beckey2021}. We use total CE, in which all $n$ qubits belong to the label set. For an $n$-qubit density matrix $\rho$, set
+\begin{equation}\label{eq:F}
+ F_n(\rho)=2^{-n}\sum_{A\subseteq[n]}\tr(\rho_A^2),
+ \qquad \tr(\rho_\varnothing^2)=1.
+\end{equation}
+The sum includes both the empty subsystem and the full system. For a normalised pure state,
+\begin{equation}\label{eq:pure}
+ \CE_n(\psi)=1-F_n(\proj{\psi}).
+\end{equation}
+Write the two ensemble roofs as
+\begin{align}
+ \CE_n^\cup(\rho)&=\inf_{\rho=\sum_i p_i\proj{\psi_i}}
+                       \sum_i p_i\CE_n(\psi_i),\label{eq:cup}\\
+ \CE_n^\cap(\rho)&=\sup_{\rho=\sum_i p_i\proj{\psi_i}}
+                       \sum_i p_i\CE_n(\psi_i).\label{eq:cap}
+\end{align}
+The convex-roof extension is also developed by Beckey et al.\ \cite[eq.~(10)]{beckey2023}. These are the quantities in equations (3.5) and (3.6) of Foulds, Prove and Kendon \cite{foulds2024}. Their equations (3.18) and (5.1) propose
+\begin{equation}\label{eq:U}
+ U_n(\rho)=\frac{1+\tr(\rho^2)}{2}-F_n(\rho)
+\end{equation}
+as an upper bound. The abstract labels the upper bound a conjecture. The source also expressly acknowledges, on p.~15 after equation (3.23), that CE may exceed the calculated upper bound. Our contribution is an exact refutation and repair of the universal statement, not the discovery that the source never recognised possible failure. We disprove the universal inequality $\CE_n^\cup(\rho)\leq U_n(\rho)$, and therefore also the stronger interpretation with $\CE_n^\cap$ on the left.
+
+Our examples use two identical copies of $\rho$. Thus they do not involve the copy-mismatch approximation also discussed in \cite{foulds2024}. They address the universal total-CE claim, not a conjecture restricted solely to a specified depolarising or Werner-type noise family.
+
+\section{Two elementary lemmas}
+\begin{lemma}[Product rule]\label{lem:product}
+For states $\rho$ and $\sigma$ on disjoint sets of $m$ and $k$ qubits,
+\begin{equation}\label{eq:product}
+ F_{m+k}(\rho\otimes\sigma)=F_m(\rho)F_k(\sigma).
+\end{equation}
+In particular, adjoining a pure single-qubit state does not change pure-state total CE.
+\end{lemma}
+\begin{proof}
+Each subsystem of the combined system is uniquely $A\cup B$, with $A$ in the first set and $B$ in the second. Its reduced state is $\rho_A\otimes\sigma_B$, so its purity is $\tr(\rho_A^2)\tr(\sigma_B^2)$. The double sum factors. For a pure single qubit $c$, $F_1(\proj c)=(1+1)/2=1$.
+\end{proof}
+The pure-state form of this product rule is also part of the existing CE hierarchy \cite{schatzki2024}; we include the direct proof to fix all normalisations.
+
+\begin{lemma}[Support restriction]\label{lem:support}
+Every positively weighted vector in a pure-state decomposition of $\rho$ belongs to $\supp\rho$.
+\end{lemma}
+\begin{proof}
+For $v\in\ker\rho$,
+\[
+ 0=\bra v\rho\ket v=\sum_i p_i|\langle v\mid\psi_i\rangle|^2.
+\]
+Every summand is nonnegative. For $p_i>0$, $\psi_i$ is therefore orthogonal to $\ker\rho$. The same argument holds almost everywhere for a measure-valued ensemble.
+\end{proof}
+
+\section{The spectator theorem and the counterexample}
+\begin{theorem}[Mixed single-qubit spectator]\label{thm:spectator}
+Let $\phi$ be a pure $m$-qubit state, let $e=\CE_m(\phi)$, and let $\tau$ be any single-qubit density matrix of purity $r=\tr(\tau^2)\in[1/2,1]$. Set $\rho=\proj\phi\otimes\tau$. Then
+\begin{align}
+ \CE_{m+1}^\cup(\rho)=\CE_{m+1}^\cap(\rho)&=e,\label{eq:roofexact}\\
+ U_{m+1}(\rho)&=\frac{1+r}{2}e,\label{eq:Uexact}\\
+ \CE_{m+1}^\cup(\rho)-U_{m+1}(\rho)&=\frac{1-r}{2}e.\label{eq:gap}
+\end{align}
+Consequently, the proposed upper bound fails whenever $e>0$ and $\tau$ is mixed.
+\end{theorem}
+\begin{proof}
+The support of $\rho$ is $\operatorname{span}\{\phi\}\otimes\supp\tau$. By Lemma~\ref{lem:support}, every pure-state component has the form $\phi\otimes c_i$, with $c_i$ a normalised single-qubit vector. Lemma~\ref{lem:product} gives $\CE_{m+1}(\phi\otimes c_i)=e$. Every ensemble average is therefore exactly $e$, proving both roof identities.
+
+Next, $\tr(\rho^2)=r$, $F_m(\proj\phi)=1-e$, and $F_1(\tau)=(1+r)/2$. Applying Lemma~\ref{lem:product} to~\eqref{eq:U} gives
+\[
+ U_{m+1}(\rho)=\frac{1+r}{2}-(1-e)\frac{1+r}{2}
+             =e\frac{1+r}{2}.
+\]
+Subtracting proves~\eqref{eq:gap}.
+\end{proof}
+
+\begin{corollary}[An exact three-qubit counterexample]\label{cor:bell}
+Let
+\[
+ \ket{\Phi^+}_{AB}=\frac{\ket{00}+\ket{11}}{\sqrt2},
+ \qquad \rho_{ABC}=\proj{\Phi^+}_{AB}\otimes\frac{I_C}{2}.
+\]
+Then
+\begin{equation}\label{eq:witness}
+ \CE_3^\cup(\rho)=\CE_3^\cap(\rho)=\frac14
+  >\frac3{16}=U_3(\rho).
+\end{equation}
+\end{corollary}
+\begin{proof}
+The four subsystem purities of a Bell pair are $1,1/2,1/2,1$, so $F_2=3/4$ and $e=1/4$. The spectator has $r=1/2$. Theorem~\ref{thm:spectator} proves the claim. A direct calculation independently gives:
+\begin{center}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Subsystem & $\varnothing$ & $A$ & $B$ & $C$ & $AB$ & $AC$ & $BC$ & $ABC$\\
+\midrule
+Purity & $1$ & $1/2$ & $1/2$ & $1/2$ & $1$ & $1/4$ & $1/4$ & $1/2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The sum is $9/2$, and hence $F_3(\rho)=9/16$ and
+$U_3(\rho)=\tfrac12(1+\tfrac12)-\tfrac9{16}=\tfrac3{16}$.
+\end{proof}
+
+An explicit matrix certificate, in lexicographic computational-basis order, is
+\[
+ \rho=\frac14
+ \begin{pmatrix}
+ 1&0&0&0&0&0&1&0\\
+ 0&1&0&0&0&0&0&1\\
+ 0&0&0&0&0&0&0&0\\
+ 0&0&0&0&0&0&0&0\\
+ 0&0&0&0&0&0&0&0\\
+ 0&0&0&0&0&0&0&0\\
+ 1&0&0&0&0&0&1&0\\
+ 0&1&0&0&0&0&0&1
+ \end{pmatrix}.
+\]
+It is the equally weighted mixture of two orthogonal pure states
+$\Phi^+\otimes\ket0$ and $\Phi^+\otimes\ket1$, so it is positive semidefinite with trace one and rank two. Positivity is not inferred from floating-point eigenvalues.
+
+\begin{corollary}[Failure arbitrarily near purity]\label{cor:near}
+For $0<\epsilon<1$, let
+\[
+ \tau_\epsilon=(1-\epsilon)\proj0+\epsilon\proj1,
+ \qquad \rho_\epsilon=\proj{\Phi^+}\otimes\tau_\epsilon.
+\]
+Then
+\begin{align}
+ \tr(\rho_\epsilon^2)&=1-2\epsilon(1-\epsilon),\\
+ \CE_3^\cup(\rho_\epsilon)=\CE_3^\cap(\rho_\epsilon)&=\frac14,\\
+ U_3(\rho_\epsilon)&=\frac{1-\epsilon+\epsilon^2}{4},\\
+ \CE_3^\cup(\rho_\epsilon)-U_3(\rho_\epsilon)&=\frac{\epsilon(1-\epsilon)}{4}>0.
+\end{align}
+Moreover, $\tfrac12\|\rho_\epsilon-\rho_0\|_1=\epsilon$.
+\end{corollary}
+\begin{proof}
+The first formula follows by squaring the two eigenvalues of $\tau_\epsilon$; the next three follow from Theorem~\ref{thm:spectator}. The difference from $\rho_0$ has two nonzero eigenvalues $\epsilon$ and $-\epsilon$, proving the trace-distance formula.
+\end{proof}
+
+\section{A sharp dimension-independent additive correction}
+\begin{theorem}\label{thm:repair}
+The smallest real constant $c$, independent of $n$, such that
+\begin{equation}\label{eq:repair}
+ \CE_n^\cup(\rho)\leq U_n(\rho)+c\bigl(1-\tr(\rho^2)\bigr)
+\end{equation}
+for every finite $n$ and every $n$-qubit density matrix is $c=1/2$. The same optimal constant applies to $\CE_n^\cap$.
+
+For each fixed $n$, the following stronger bound holds (Equation~\eqref{eq:capsharp} establishes the optimal concave-roof coefficient):
+\begin{equation}\label{eq:fixedn}
+ \CE_n^\cap(\rho)\leq U_n(\rho)
+       +\left(\frac12-2^{-n}\right)\bigl(1-\tr(\rho^2)\bigr).
+\end{equation}
+\end{theorem}
+\begin{proof}
+For any pure-state ensemble of $\rho$, let $\rho_{i,A}$ be the reduced state of $\psi_i$ on $A$. With $\|X\|_2^2=\tr(X^\dagger X)$, expanding the Hilbert--Schmidt norm gives
+\[
+ \sum_i p_i\tr(\rho_{i,A}^2)-\tr(\rho_A^2)
+       =\sum_i p_i\|\rho_{i,A}-\rho_A\|_2^2\geq0.
+\]
+Therefore every ensemble satisfies the exact variance identity
+\begin{equation}\label{eq:variance}
+ \sum_i p_i\CE_n(\psi_i)
+ =1-F_n(\rho)-2^{-n}\sum_{A\subseteq[n]}\sum_i p_i
+                         \|\rho_{i,A}-\rho_A\|_2^2.
+\end{equation}
+Discarding the nonnegative sum gives
+\[
+ \CE_n^\cap(\rho)\leq1-F_n(\rho)
+       =U_n(\rho)+\frac12\bigl(1-\tr(\rho^2)\bigr).
+\]
+Since $\CE_n^\cup\leq\CE_n^\cap$, this proves sufficiency for both roofs. Retaining the full-system term in~\eqref{eq:variance}, whose value is $1-\tr(\rho^2)$, proves~\eqref{eq:fixedn}.
+
+To prove dimension-independent optimality, take a pure core comprising $k$ independent Bell pairs:
+\[
+ \ket{\phi_k}=\ket{\Phi^+}^{\otimes k},\qquad
+ e_k=1-\left(\frac34\right)^k.
+\]
+The expression for $e_k$ follows from Lemma~\ref{lem:product}. Append any fixed mixed single qubit $\tau$, with $r=\tr(\tau^2)<1$, to obtain a $(2k+1)$-qubit state $\omega_k$. Theorem~\ref{thm:spectator} gives
+\[
+ \frac{\CE_{2k+1}^\cup(\omega_k)-U_{2k+1}(\omega_k)}
+ {1-\tr(\omega_k^2)}
+ =\frac{e_k}{2}
+ =\frac12\left[1-\left(\frac34\right)^k\right]
+ \longrightarrow\frac12.
+\]
+Both roofs coincide on these states. Every $c<1/2$ fails for some finite $k$, proving necessity for both roofs.
+\end{proof}
+The sufficient bound $1-F_n$ is the usual concavity-based upper estimate. Vairogs, Hermes and Leditzky give the same purity-convexity argument for CE of assistance \cite[Theorem 3 and Appendix B]{vairogs2026}. The measurable mixed-state quantity $1-F_n$ is explicitly discussed by Schatzki et al.\ \cite[Supplement, Section XI]{schatzki2024}; it is not itself an entanglement monotone. Theorem~\ref{thm:repair} does not claim that this estimate is the best bound at any fixed $n$, nor that nonlinear or state-dependent corrections are excluded.
+
+\section{Why the measured probability decreases}
+For identical copies, the statistic $U_n$ equals the probability of a nonzero even number of antisymmetric outcomes in local SWAP measurements, whereas the odd-parity probability is $(1-\tr\rho^2)/2$ \cite[eqs.~(3.3)--(3.4)]{foulds2024}. Label a symmetric outcome by $0$ and an antisymmetric outcome by $1$.
+
+For two copies of a Bell pair, the outcomes $00$ and $11$ have probabilities $3/4$ and $1/4$. A spectator of purity $r$ gives probabilities $(1+r)/2$ and $(1-r)/2$. The core and spectator measurements factor, since their input density matrices factor. The core event $11$ remains even only when the spectator outcome is $0$. Its counted probability is consequently $(1/4)(1+r)/2$.
+
+\Needspace{7\baselineskip}
+For $\tau=I/2$, the full distribution is
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Nonzero-probability outcome & $000$ & $001$ & $110$ & $111$\\
+\midrule
+Probability & $9/16$ & $3/16$ & $3/16$ & $1/16$\\
+\bottomrule
+\end{tabular}
+\end{center}
+All other outcomes have probability zero. The $111$ event is excluded by the proposed statistic. It accounts exactly for the $1/16$ deficit. The Bell-pair entanglement has not changed; the spectator has changed the parity selection. The uniform repair adds back all odd outcomes, giving $1-F_3=7/16$ here. The fixed-three-qubit repair gives $3/8$. Both exceed the exact roof $1/4$: uniform sharpness does not mean pointwise tightness.
+
+\input{extensions.tex}
+
+\section{Checks, scope and provenance}
+The accompanying standard-library Python verifier uses exact rational arithmetic. It checks normalisation, the rank-two support projector, all eight subsystem purities and all eight local-SWAP outcome probabilities. It calculates the latter directly from permutations on two copies, rather than from the partial-trace implementation. It also checks rational points in the near-pure family and a two-Bell-pair core. The recorded result is \texttt{PASS}. A separately implemented Pauli-basis checker confirms the original certificates. A SymPy 1.14.0 checker additionally checks the extension identities, arbitrary-phase GME marginals, noisy-family formulas, GHZ saturation and perturbation radius, with semantic negative controls. None of these algebraic checks replaces the support, optimisation or concurrence arguments. These are finite arithmetic checks; the support and variance arguments above supply the proofs over all ensembles and all dimensions.
+
+Sanity checks include the pure endpoints $\epsilon=0,1$, where the gap is zero; the maximally mixed spectator $\epsilon=1/2$, where the gap is $1/16$; and a pure product core $e=0$, for which both roofs and $U$ are zero. The original spectator example is biseparable; Theorem~\ref{thm:gme} removes that restriction. Total CE is the quantity at issue; excluding an uncorrelated spectator would add a hypothesis absent from the universal claim.
+
+The statement audited is the published 2024 paper, also available as arXiv:2112.04333v8 (revised 2 January 2025). A targeted search on 13 October 2026 inspected the source, its version history, related CE papers, and search results for an upper-bound correction or spectator counterexample. No earlier resolution was located in those inspected materials. This bounded search does not establish priority or exclude an unindexed result. The note and verifier were produced in an AI-assisted session; there has been no independent external review or proof-assistant formalisation. No unresolved analytic step is used in the stated refutation.
+
+\begin{thebibliography}{9}
+\bibitem{wootters1998} Wootters, W. K. (1998). Entanglement of formation of an arbitrary state of two qubits. \emph{Physical Review Letters, 80}, 2245--2248. \url{https://doi.org/10.1103/PhysRevLett.80.2245}.
+\bibitem{beckey2023} Beckey, J. L., Pelegrí, G., Foulds, S., and Pearson, N. J. (2023). Multipartite entanglement measures via Bell basis measurements. \emph{Physical Review A, 107}, 062425. \url{https://doi.org/10.1103/PhysRevA.107.062425}.
+\bibitem{vairogs2026} Vairogs, C., Hermes, S., and Leditzky, F. (2026). Localizing multipartite entanglement with local and global measurements. \emph{Quantum, 10}, 2007. \url{https://doi.org/10.22331/q-2026-02-23-2007}.
+
+\bibitem{foulds2024}
+Foulds, S., Prove, O., \& Kendon, V. (2024).
+Generalizing multipartite concentratable entanglement for practical applications: mixed, qudit and optical states.
+\emph{Philosophical Transactions of the Royal Society A, 382}(2287), 20240411.
+\url{https://doi.org/10.1098/rsta.2024.0411}.
+Version inspected: \url{https://arxiv.org/abs/2112.04333v8}.
+
+\bibitem{beckey2021}
+Beckey, J. L., Gigena, N., Coles, P. J., \& Cerezo, M. (2021).
+Computable and operationally meaningful multipartite entanglement measures.
+\emph{Physical Review Letters, 127}(14), 140501.
+\url{https://doi.org/10.1103/PhysRevLett.127.140501}.
+
+\bibitem{schatzki2024}
+Schatzki, L., Liu, G., Cerezo, M., \& Chitambar, E. (2024).
+Hierarchy of multipartite correlations based on concentratable entanglement.
+\emph{Physical Review Research, 6}(2), 023019.
+\url{https://doi.org/10.1103/PhysRevResearch.6.023019}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,11 @@
+# Assurance and trust boundary
+
+The mathematical evidence is the explicit support argument, variance identity, complementary-purity/discard argument, Wootters concurrence reduction, trace-distance inequalities, GME support minors and attained Jensen/chord bounds in [paper.tex](paper.tex) and [extensions.tex](extensions.tex). The universal quantifiers are justified there, not by a search over ensembles.
+
+The standard-library checker tests rational density matrices, purities and local-SWAP probabilities through separately implemented arithmetic routes. The Pauli checker imports no submission code. The SymPy checker checks arbitrary-phase pure marginals algebraically under normalisation, mixed-state formulas, GHZ examples, noisy-family formulas and radius arithmetic. Its seven negative controls address missing subsystem terms, wrong parity selection, exchanged roofs, wrong quadratic and repair coefficients, and replacing the three-qubit statistic with the core statistic. These controls are selected semantic alternatives, not mutation-testing completeness.
+
+The original submission review and targeted extension review were AI-assisted internal assessments in the same overall workflow. Separate implementations and checking perspectives reduce some error risks but do not establish statistical independence or external peer review. No formal proof assistant, laboratory measurement, independent external reproduction or journal acceptance is supplied.
+
+Load-bearing external mathematics is attributed in [CITATION_AUDIT.md](CITATION_AUDIT.md). Bounded searches did not locate the exact correction or constructed families in the material inspected; this is not proof of priority. Pure-state GHZ values, product identities, concurrence formulas, fidelity witnesses and convexity tools are known ingredients.
+
+The source itself acknowledged possible underestimation; the result makes universal failure exact and quantitative. It does not show that every restricted noise-model estimate fails or that any particular experiment reported an erroneous result. The explicit GME examples have rank two, while the explicit full-rank ball is a separate construction. Uniform sharpness is not pointwise tightness. The concave roof can be positive on separable states and is not the same mixed-state entanglement quantity as the convex roof.
